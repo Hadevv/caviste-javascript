@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/style/style.css" >
+    <title>Projet Caviste</title>
+</head>
+<body>
+<header class="header">
+    <!--Implémentation du logo-->
+    <div id="logoDiv">
+
+    </div>
+    <!--Titre principal-->
+    <div class="titleDiv">
+        <h1 id="h1Title" ></h1>
+    </div>
+</header>
+
+<!--Contenu principal-->
+<section id="main">
+    <!--Formulaire de recherche-->
+    <div id="formDiv">
+        <form id="form">
+            <input type="text" class="input" id="inputName" placeholder="Search wine">
+            <select class="input" id="colorSelect">
+                <option value="color">Couleur</option>
+                <option value="red">Red</option>
+                <option value="white">White</option>
+                <option value="pink">Rosé</option>
+            </select>
+            <input type="number" class="input" id="inputDate" min="1950" max="2023" placeholder="date">
+            <select class="input" id="countrySelect">
+                <option><!--itération des pays--></option>
+            </select>
+        </form>
+    </div>
+    <!--Barre de progression -->
+    <div id="progress">
+
+    </div>
+    <!--Fiche produit -->
+    <article id="product">
+        <div class="titleDiv">
+            <h2 id="h2Title"></h2>
+        </div>
+        <!--Photo produit -->
+        <div id="winePic">
+
+        </div>
+        <!--Flèche gauche-->
+        <div class="arrows" id="leftArrow">
+
+        </div>
+        <!--propriétés du vin-->
+        <ul id="productProperty">
+            <li class="property" id="grapes">Grapes</li>
+            <li class="property" id="country">Country</li>
+            <li class="property" id="year">Year</li>
+            <li class="property" id="capacity">Capacity</li>
+            <li class="property" id="color">Color</li>
+            <li class="property" id="price">Price</li>
+        </ul>
+        <!--Flèche droite-->
+        <div class="arrows" id="rightArrow">
+
+        </div>
+    </article>
+        <!--Boutton like, rajout de photo & ajout de note-->
+        <div class="userClicks">
+            <div id="like">
+                <!--icône like-->
+                like
+            </div>
+            <div id="addPic">
+                <!--icône add picture-->
+                Add picture
+            </div>
+            <div id="addNote">
+                <!--icône add note-->
+                Add note
+            </div>
+        </div>
+        <!--description, commentaire & note personnelle-->
+    <article class="productInfos">
+        <div id="Description">
+            Description
+        </div>
+        <div id="Commentaires">
+            Commentaires
+        </div>
+        <div id="notes">
+            Notes personelles
+        </div>
+        <div id="productInfoContent">
+            
+        </div>
+    </article>
+
+
+</section>
+</body>
+</html>
