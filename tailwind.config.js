@@ -21,8 +21,8 @@ module.exports = {
       // => beige
       background: "#FFFFF2",
       // => blanc cassé
-      commentBg: "DCBF89",
-      // => beige foncé
+      commentBg: "#DCBF8940",
+      // => beige foncé + opacité 25%
       inputBg: "#F6EFD8",
       // => beige clair
       borderInput: "#475069",
