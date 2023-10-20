@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">    <link rel="stylesheet" href="/assets/style/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
     <link href="/dist/output.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <script src="main.js" defer></script>
+    <script src="../assets/scripts/main.js" defer></script>
     <title>Projet Caviste</title>
 </head>
+
 <body class="bg-background">
     <header class="bg-primary relative h-20 flex items-center">
         <!-- Logo à gauche -->
@@ -21,61 +23,63 @@
             <h1 class="text-secondary font-niconne text-3xl">Caviste</h1>
         </div>
     </header>
-<!--Contenu principal-->
-<section id="main">
-    <!--Formulaire de recherche-->
-    <div id="formDiv" class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
-        <!-- Champ de recherche -->
-        <form id="form" class="w-full sm:w-auto">
-            <input type="text" class="input w-full mb-2 sm:mb-0 p-2" id="inputName" placeholder="Rechercher un vin">
-        </form>
-        <!-- Les trois boutons -->
-        <div class="w-full sm:w-auto flex">
-            <select class="input w-1/3 sm:w-auto" id="colorSelect">
-                <option value="color">Couleur</option>
-                <option value="red">Rouge</option>
-                <option value="white">Blanc</option>
-                <option value="pink">Rosé</option>
-            </select>
-            <input type="number" class="input w-1/3 sm:w-auto mx-2 p-2" id="inputDate" min="1950" max="2023" placeholder="Année">
-            <select class="input w-1/3 sm:w-auto" id="countrySelect">
-                <option>Pays</option>
-            </select>
+    <!--Contenu principal-->
+    <section id="main">
+        <!--Formulaire de recherche-->
+        <div id="formDiv" class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 ">
+            <!-- Champ de recherche -->
+            <form id="form" class="w-full sm:w-auto">
+                <input type="text" class="bg-inputbg input w-full mb-2 sm:mb-0 p-2 " id="inputName"
+                    placeholder="Rechercher un vin">
+                <!-- Les trois boutons -->
+                <div class="w-full sm:w-auto flex">
+                    <select class="input w-1/3 sm:w-auto" id="colorSelect">
+                        <option value="color">Couleur</option>
+                        <option value="red">Rouge</option>
+                        <option value="white">Blanc</option>
+                        <option value="pink">Rosé</option>
+                    </select>
+                    <input type="number" class="input w-1/3 sm:w-auto mx-2 p-2" id="inputDate" min="1950" max="2023"
+                        placeholder="Année">
+                    <select class="input w-1/3 sm:w-auto" id="countrySelect">
+                        <option>Pays</option>
+                    </select>
+                </div>
+            </form>
         </div>
-    </div>
 
-      
-    <!--Barre de progression -->
-    <div id="progress">
 
-    </div>
-    <!--Fiche produit -->
-    <article id="product">
-        <div class="titleDiv">
-            <h2 id="h2Title"></h2>
-        </div>
-        <!--Photo produit -->
-        <div id="winePic">
+        <!--Barre de progression -->
+        <div id="progress">
 
         </div>
-        <!--Flèche gauche-->
-        <div class="arrows" id="leftArrow">
+        <!--Fiche produit -->
+        <article id="product">
+            <div class="titleDiv">
+                <h2 id="h2Title"></h2>
+            </div>
+            <!--Photo produit -->
+            <div id="winePic">
 
-        </div>
-        <!--propriétés du vin-->
-        <ul id="productProperty">
-            <li class="property" id="grapes">Grapes</li>
-            <li class="property" id="country">Country</li>
-            <li class="property" id="year">Year</li>
-            <li class="property" id="capacity">Capacity</li>
-            <li class="property" id="color">Color</li>
-            <li class="property" id="price">Price</li>
-        </ul>
-        <!--Flèche droite-->
-        <div class="arrows" id="rightArrow">
+            </div>
+            <!--Flèche gauche-->
+            <div class="arrows" id="leftArrow">
 
-        </div>
-    </article>
+            </div>
+            <!--propriétés du vin-->
+            <ul id="productProperty">
+                <li class="property" id="grapes">Grapes</li>
+                <li class="property" id="country">Country</li>
+                <li class="property" id="year">Year</li>
+                <li class="property" id="capacity">Capacity</li>
+                <li class="property" id="color">Color</li>
+                <li class="property" id="price">Price</li>
+            </ul>
+            <!--Flèche droite-->
+            <div class="arrows" id="rightArrow">
+
+            </div>
+        </article>
         <!--Boutton like, rajout de photo & ajout de note-->
         <div class="userClicks">
             <div id="like">
@@ -92,20 +96,21 @@
             </div>
         </div>
         <!--description, commentaire & note personnelle-->
-    <article class="productInfos">
-        <div id="Description">
-            Description
-        </div>
-        <div id="Commentaires">
-            Commentaires
-        </div>
-        <div id="notes">
-            Notes personelles
-        </div>
-        <div id="productInfosContent">
+        <article class="productInfos">
+            <div id="Description">
+                Description
+            </div>
+            <div id="Commentaires">
+                Commentaires
+            </div>
+            <div id="notes">
+                Notes personelles
+            </div>
+            <div id="productInfosContent">
 
-        </div>
-    </article>
-</section>
+            </div>
+        </article>
+    </section>
 </body>
+
 </html>
