@@ -16,7 +16,6 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
     <style>
-        .element::-webkit-scrollbar { width: 0 !important }
         html,
         body {
             position: relative;
@@ -28,12 +27,15 @@
             height: 100%;
         }
         .swiper-slide {
-            text-align: center;
-            font-size: 18px;
+            
+            font-size: 16px;
             background: #FFFFF2;
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+        main{
+            padding: 12px;
         }
     </style>
     <title>Projet Caviste</title>
@@ -57,7 +59,7 @@
             <!-- Champ de recherche -->
             <form id="form" class="w-full sm:w-auto">
                 <input type="text"
-                    class="bg-inputBg border-2 h-10 rounded text-center center mt-3 border-borderInput input w-full mb-2 sm:mb-0 p-2 "
+                    class="bg-inputBg border-2 h-10 rounded text-center center border-borderInput input w-full mb-2 sm:mb-0 p-2 "
                     id="inputName" placeholder="Rechercher un vin">
                 <!-- Les trois boutons -->
                 <div class="w-full sm:w-auto flex">
@@ -80,26 +82,26 @@
         <!-- Swiper -->
         <div class="swiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide mt-14">
+                <div class="swiper-slide mt-14 ">
                     <!--Fiche produit -->
-                    <article id="product">
-                        <div class="titleDiv">
-                            <h2 id="h2Title"></h2>
+                    <article id="product" class="bg-white rounded-lg p-4 flex flex-row ">
+                        <div id="winePic" class="w-1/6 md:w-1/2 md:pr-4">
+                            <img src="/assets/img/btvins.png" alt="photo du vin" class=" w-full h-full object-contain rounded-lg">
                         </div>
-                        <!--Photo produit -->
-                        <div id="winePic">
-                            <img src="/assets/img/bouteille.png" alt="photo du vin" id="wineImg">
+                        <!-- Propriétés du vin -->
+                        <div class="md:w-1/2 md:pl-4">
+                            <h2 id="h2Title" class="text-2xl font-bold mb-4">Titre du produit</h2>
+                            <ul>
+                                <li class="property" id="country">Pays</li>
+                                <li class="property" id="grapes">Cépages</li>
+                                <li class="property" id="year">Année</li>
+                                <li class="property" id="capacity">Capacité</li>
+                                <li class="property" id="color">Couleur</li>
+                                <li class="property" id="price">Prix</li>
+                            </ul>
                         </div>
-                        <!--propriétés du vin-->
-                        <ul id="productProperty">
-                            <li class="property" id="grapes">Grapes</li>
-                            <li class="property" id="country">Country</li>
-                            <li class="property" id="year">Year</li>
-                            <li class="property" id="capacity">Capacity</li>
-                            <li class="property" id="color">Color</li>
-                            <li class="property" id="price">Price</li>
-                        </ul>
                     </article>
+
                 </div>
                 <div class="swiper-slide mt-14">
                     <!--Fiche produit -->
@@ -153,7 +155,7 @@
 
         <!--/////////////////////////////////////////////////////////////////////////////-->
         <!--Boutton like, rajout de photo & ajout de note-->
-        <div class="flex space-x-4 justify-center gap-2 mt-8 ">
+        <div class="flex space-x-4 justify-center gap-2 mt-8 mb-8">
             <div class="flex items-center " id="like">
                 <!--svg coeur-->
                 <svg class="" width="19" height="16" viewBox="0 0 19 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -189,10 +191,10 @@
             </div>
         </div>
         <!--description, commentaire & note personnelle-->
-    </main>
+    
 
     <section class="flex justify-center">
-        <article class="bg-commentBg h-48  flex flex-col items-center rounded-3xl mt-8 w-11/12 relative  ">
+        <article class="bg-commentBg h-48  flex flex-col items-center rounded-3xl mt-8 w-full relative  ">
             <select class="bg-primary text-secondary w-3/6 text-center rounded-lg -top-3 absolute" id="">
                 <option class="bg-primary text-secondary text-center w-3/6 rounded-lg" id="Description">
                     Description
@@ -207,6 +209,7 @@
             </select>
         </article>
     </section>
+</main>
 </body>
 <script>
     var swiper = new Swiper('.swiper', {
