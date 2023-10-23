@@ -5,15 +5,16 @@
     <meta charset="UTF-8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
-    <link href="/dist/output.css" rel="stylesheet">
+    <link href="output.css" rel="stylesheet">
     <!--Style de swiper-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-
-    <link rel="stylesheet" href="/assets/style/style.css">
+    <link rel="icon" type="image/x-icon" href="../assets/img/logo_caviste_.svg">
+    <link rel="stylesheet" href="../assets/style/style.css">
     <!--swiper scr-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <script src="../assets/scripts/fetch.js"></script>
 
     <style>
         html,
@@ -22,19 +23,22 @@
             height: 100vh;
             overflow: hidden;
         }
+
         .swiper {
             width: 100%;
             height: 100%;
         }
+
         .swiper-slide {
-            
+
             font-size: 16px;
             background: #FFFFF2;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        main{
+
+        main {
             padding: 12px;
         }
     </style>
@@ -45,7 +49,7 @@
     <header class="bg-primary relative h-20 flex items-center">
         <!-- Logo à gauche -->
         <div class="flex items-center">
-            <img src="/assets/img/logo_caviste_.svg" alt="logo caviste" class="w-15 h-15">
+            <img src="../assets/img/logo_caviste_.svg" alt="logo caviste" class="w-15 h-15">
         </div>
         <!-- Titre principal milieu -->
         <div class="absolute inset-0 flex items-center justify-center">
@@ -86,7 +90,8 @@
                     <!--Fiche produit -->
                     <article id="product" class="bg-white rounded-lg p-4 flex flex-row ">
                         <div id="winePic" class="w-1/6 md:w-1/2 md:pr-4">
-                            <img src="/assets/img/btvins.png" alt="photo du vin" class=" w-full h-full object-contain rounded-lg">
+                            <img src="../assets/img/bouteille.png" alt="photo du vin"
+                                class=" w-full h-full object-contain rounded-lg">
                         </div>
                         <!-- Propriétés du vin -->
                         <div class="md:w-1/2 md:pl-4">
@@ -191,25 +196,25 @@
             </div>
         </div>
         <!--description, commentaire & note personnelle-->
-    
 
-    <section class="flex justify-center">
-        <article class="bg-commentBg h-48  flex flex-col items-center rounded-3xl mt-8 w-full relative  ">
-            <select class="bg-primary text-secondary w-3/6 text-center rounded-lg -top-3 absolute" id="">
-                <option class="bg-primary text-secondary text-center w-3/6 rounded-lg" id="Description">
-                    Description
-                </option>
-                <option class="bg-primary text-secondary text-center w-3/6 rounded-lg" id="Commentaires">
-                    Commentaires
-                </option>
-                <option class="bg-primary text-secondary text-center w-3/6 rounded-lg" id="notes">
-                    Notes personelles
-                </option>
-                <div id="productInfosContent">
-            </select>
-        </article>
-    </section>
-</main>
+
+        <section class="flex justify-center">
+            <article class="bg-commentBg h-48  flex flex-col items-center rounded-3xl mt-8 w-full relative  ">
+                <select class="bg-primary text-secondary w-3/6 text-center rounded-lg -top-3 absolute" id="">
+                    <option class="bg-primary text-secondary text-center w-3/6 rounded-lg" id="Description">
+                        Description
+                    </option>
+                    <option class="bg-primary text-secondary text-center w-3/6 rounded-lg" id="Commentaires">
+                        Commentaires
+                    </option>
+                    <option class="bg-primary text-secondary text-center w-3/6 rounded-lg" id="notes">
+                        Notes personelles
+                    </option>
+                    <div id="productInfosContent">
+                </select>
+            </article>
+        </section>
+    </main>
 </body>
 <script>
     var swiper = new Swiper('.swiper', {
