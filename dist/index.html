@@ -8,9 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
     <link href="output.css" rel="stylesheet">
     <!--Style de swiper-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../assets/style/styleSwiper.css" />
     <link rel="icon" type="image/x-icon" href="../assets/img/logo_caviste_.svg">
-    <link rel="stylesheet" href="../assets/style/style.css">
+
     <!--swiper scr-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
@@ -40,6 +40,12 @@
 
         main {
             padding: 12px;
+        }
+
+        .swiper-pagination {
+            margin-bottom: 150px;
+            color: "#AE1829";
+            background-color: "#AE1829";
         }
     </style>
     <title>Projet Caviste</title>
@@ -152,10 +158,11 @@
                 </div>
             </div>
             <!-- Add Pagination -->
-            <div class="swiper-pagination !top-2"></div>
+            <div class="swiper-pagination"></div>
             <!-- Add Navigation -->
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
+
         </div>
 
         <!--/////////////////////////////////////////////////////////////////////////////-->
@@ -218,7 +225,7 @@
 </body>
 <script>
     var swiper = new Swiper('.swiper', {
-
+        loop: true,
         pagination: {
             el: '.swiper-pagination',
             clickable: true,
