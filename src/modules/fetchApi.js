@@ -67,13 +67,51 @@ export default class FetchApi {
   }
 
   /**
+   * Récupère l'image d'un vin à partir de l'API.
+   *
+   * @param wine Le vin dont on veut récupérer l'image.
+   * @return Une promesse qui renvoie l'image du vin, en tant que Blob.
+   */
+  async getImage(wine) {
+    const imageName = wine.picture;
+    const url = `https://cruth.phpnet.org/epfc/caviste/public/pics/${imageName.replace(
+      " ",
+      ""
+    )}`;
+
+    return fetch(url).then((response) => {
+      if (response.ok) {
+        return response.blob();
+      } else {
+        throw new Error(response.statusText);
+      }
+    });
+  }
+  /**
+   * Récupère l'image d'un vin à partir de l'API.
+   *
+   * @param id L'identifiant du vin.
+   * @return L'image du vin, en tant que Blob.
+   */
+  async getImage(id) {
+    const url = `https://cruth.phpnet.org/epfc/caviste/public/pics/${id}.jpg`;
+    return fetch(url).then((response) => {
+      if (response.ok) {
+        return response.blob();
+      } else {
+        throw new Error(response.statusText);
+      }
+    });
+  }
+
+  /**
    * Exécute une requête avec les paramètres et les options spécifiés.
    *
    * @param url L'URL de la requête.
    * @param options Les options de la requête.
    * @return La réponse de la requête.
    */
-  fetch(url, options) {
+  async fetch(url, options) {
     return fetch(url, options).then((response) => {
       if (response.ok) {
         return response.json();

@@ -1,4 +1,6 @@
 import FetchApi from "./modules/fetchApi.js";
+import Swiper from "./modules/swiper.js";
+import filterResults from "./modules/function.js";
 
 const api = new FetchApi(
   "http://cruth.phpnet.org/epfc/caviste/public/index.php/api/wines"
@@ -12,17 +14,17 @@ const data = await response;
 
 // Parcourir les données de l'API
 data.forEach((wine) => {
-    // Créez un élément de carrousel
-    console.log(wine.name);
-    const slide = document.createElement("div");
-    slide.classList.add("'swiper-slide'");
+  // Créez un élément de carrousel
+  console.log(wine.name);
+  
+  const slide = document.createElement("div");
+  slide.classList.add("'swiper-slide'");
 
-    // Ajoutez le contenu de l'élément de carrousel
-    //getimage ne fonctionne pas
-    slide.innerHTML = `
+  // Ajoutez le contenu de l'élément de carrousel
+  slide.innerHTML = `
     <article id="product" class="bg-white rounded-lg p-4 flex flex-row ">
       <div id="winePic" class="w-1/6 md:w-1/2 md:pr-4">
-        <img src="../src/assets/img/${wine.image}" alt="photo du vin"
+        <img src="https://cruth.phpnet.org/epfc/caviste/public/pics/${wine.picture}" alt="photo du vin"
           class=" w-full h-full object-contain rounded-lg">
       </div>
       <div class="md:w-1/2 md:pl-4">
