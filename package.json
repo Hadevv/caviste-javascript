@@ -1,0 +1,17 @@
+{
+  "name": "caviste",
+  "version": "1.0.0",
+  "main": "main.js",
+  
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "tailwindcss": "^3.3.3",
+    "swiper": "^10.3.1"
+  }
+}
+

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+    <link href="output.css" rel="stylesheet">
+    <!--Style de swiper-->
+    <link rel="stylesheet" href="../assets/style/styleSwiper.css" />
+    <link rel="icon" type="image/x-icon" href="../assets/img/logo_caviste_.svg">
+
+    <!--swiper scr-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <script src="../assets/scripts/fetch.js"></script>
+
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+
+            font-size: 16px;
+            background: #FFFFF2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        main {
+            padding: 12px;
+        }
+
+        .swiper-pagination {
+            margin-bottom: 150px;
+            color: "#AE1829";
+            background-color: "#AE1829";
+        }
+    </style>
+    <title>Projet Caviste</title>
+</head>
+
+<body class="bg-background">
+    <header class="bg-primary relative h-20 flex items-center">
+        <!-- Logo à gauche -->
+        <div class="flex items-center">
+            <img src="../assets/img/logo_caviste_.svg" alt="logo caviste" class="w-15 h-15">
+        </div>
+        <!-- Titre principal milieu -->
+        <div class="absolute inset-0 flex items-center justify-center">
+            <h1 class="text-secondary font-niconne text-3xl">Caviste</h1>
+        </div>
+    </header>
+    <!--Contenu principal-->
+    <main>
+        <!--Formulaire de recherche-->
+        <div id="formDiv" class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 ">
+            <!-- Champ de recherche -->
+            <form id="form" class="w-full sm:w-auto">
+                <input type="text"
+                    class="bg-inputBg border-2 h-10 rounded text-center center border-borderInput input w-full mb-2 sm:mb-0 p-2 "
+                    id="inputName" placeholder="Rechercher un vin">
+                <!-- Les trois boutons -->
+                <div class="w-full sm:w-auto flex">
+                    <select class="bg-inputBg h-10 border-2 rounded input w-1/3 sm:w-auto" id="colorSelect">
+                        <option value="color">Couleur</option>
+                        <option value="red">Rouge</option>
+                        <option value="white">Blanc</option>
+                        <option value="pink">Rosé</option>
+                    </select>
+                    <input type="number" class="bg-inputBg h-10 border-2 rounded input w-1/3 sm:w-auto mx-2 p-2"
+                        id="inputDate" min="1950" max="2023" placeholder="Année">
+                    <select class="bg-inputBg h-10 border-2 rounded input w-1/3 sm:w-auto" id="countrySelect">
+                        <option>Pays</option>
+                    </select>
+                    <!--Add les autres champs au travers un menu-->
+                </div>
+            </form>
+        </div>
+        <!--/////////////////////////////////////////////////////////////////////////////-->
+        <!-- Swiper -->
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide mt-14 ">
+                    <!--Fiche produit -->
+                    <article id="product" class="bg-white rounded-lg p-4 flex flex-row ">
+                        <div id="winePic" class="w-1/6 md:w-1/2 md:pr-4">
+                            <img src="../assets/img/bouteille.png" alt="photo du vin"
+                                class=" w-full h-full object-contain rounded-lg">
+                        </div>
+                        <!-- Propriétés du vin -->
+                        <div class="md:w-1/2 md:pl-4">
+                            <h2 id="h2Title" class="text-2xl font-bold mb-4">Titre du produit</h2>
+                            <ul>
+                                <li class="property" id="country">Pays</li>
+                                <li class="property" id="grapes">Cépages</li>
+                                <li class="property" id="year">Année</li>
+                                <li class="property" id="capacity">Capacité</li>
+                                <li class="property" id="color">Couleur</li>
+                                <li class="property" id="price">Prix</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                </div>
+                <div class="swiper-slide mt-14">
+                    <!--Fiche produit -->
+                    <article id="product">
+                        <div class="titleDiv">
+                            <h2 id="h2Title"></h2>
+                        </div>
+                        <!--Photo produit -->
+                        <div id="winePic">
+                            <img src="" alt="photo du vin" id="wineImg">
+                        </div>
+                        <!--propriétés du vin-->
+                        <ul id="productProperty">
+                            <li class="property" id="grapes">Grapes</li>
+                            <li class="property" id="country">Country</li>
+                            <li class="property" id="year">Year</li>
+                            <li class="property" id="capacity">Capacity</li>
+                            <li class="property" id="color">Color</li>
+                            <li class="property" id="price">Price</li>
+                        </ul>
+                    </article>
+                </div>
+                <div class="swiper-slide mt-14">
+                    <!--Fiche produit -->
+                    <article id="product">
+                        <div class="titleDiv">
+                            <h2 id="h2Title"></h2>
+                        </div>
+                        <!--Photo produit -->
+                        <div id="winePic">
+                            <img src="" alt="photo du vin" id="wineImg">
+                        </div>
+                        <!--propriétés du vin-->
+                        <ul id="productProperty">
+                            <li class="property" id="grapes">Grapes</li>
+                            <li class="property" id="country">Country</li>
+                            <li class="property" id="year">Year</li>
+                            <li class="property" id="capacity">Capacity</li>
+                            <li class="property" id="color">Color</li>
+                            <li class="property" id="price">Price</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Navigation -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+        </div>
+
+        <!--/////////////////////////////////////////////////////////////////////////////-->
+        <!--Boutton like, rajout de photo & ajout de note-->
+        <div class="flex space-x-4 justify-center gap-2 mt-8 mb-8">
+            <div class="flex items-center " id="like">
+                <!--svg coeur-->
+                <svg class="" width="19" height="16" viewBox="0 0 19 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="&#240;&#159;&#166;&#134; icon &#34;heart&#34;">
+                        <path id="Vector"
+                            d="M4.6875 0.5C3.39844 0.5 2.25 1.00294 1.38281 1.79015C0.539062 2.57737 0 3.64885 0 4.8734C0 6.07609 0.539062 7.14757 1.38281 7.95665L9.375 15.4133L17.3672 7.95665C18.2109 7.16944 18.75 6.09796 18.75 4.8734C18.75 3.67072 18.2109 2.59923 17.3672 1.79015C16.5234 1.00294 15.375 0.5 14.0625 0.5C12.7734 0.5 11.625 1.00294 10.7578 1.79015C9.91406 2.57737 9.375 3.64885 9.375 4.8734C9.375 3.67072 8.83594 2.59923 7.99219 1.79015C7.14844 1.00294 6 0.5 4.6875 0.5Z"
+                            fill="#AE1829" />
+                    </g>
+                </svg>
+                <span class="ml-1">like</span>
+            </div>
+            <div class=" flex items-center" id="addPic">
+                <!--svg picture-->
+                <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="&#240;&#159;&#166;&#134; icon &#34;image&#34;">
+                        <path id="Vector"
+                            d="M0 0V18.75H18.75V0H0ZM2.34375 2.34375H16.4062V9.375L14.0625 7.03125L11.7188 9.375L16.4062 14.0625V16.4062H14.0625L4.6875 7.03125L2.34375 9.375V2.34375Z"
+                            fill="#AE1829" />
+                    </g>
+                </svg>
+                <span class="ml-1">Add picture</span>
+            </div>
+            <div class=" flex items-center" id="addNote">
+                <!--svg commentaire-->
+                <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="&#240;&#159;&#166;&#134; icon &#34;pencil&#34;">
+                        <path id="Vector"
+                            d="M14.0625 0.25L11.7188 2.59375L16.4062 7.28125L18.75 4.9375L14.0625 0.25ZM9.375 4.9375L0 14.3125V19H4.6875L14.0625 9.625L9.375 4.9375Z"
+                            fill="#AE1829" />
+                    </g>
+                </svg>
+                <span class="ml-1">add note</span>
+            </div>
+        </div>
+        <!--description, commentaire & note personnelle-->
+
+
+        <section class="flex justify-center">
+            <article class="bg-commentBg h-48  flex flex-col items-center rounded-3xl mt-8 w-full relative  ">
+                <select class="bg-primary text-secondary w-3/6 text-center rounded-lg -top-3 absolute" id="">
+                    <option class="bg-primary text-secondary text-center w-3/6 rounded-lg" id="Description">
+                        Description
+                    </option>
+                    <option class="bg-primary text-secondary text-center w-3/6 rounded-lg" id="Commentaires">
+                        Commentaires
+                    </option>
+                    <option class="bg-primary text-secondary text-center w-3/6 rounded-lg" id="notes">
+                        Notes personelles
+                    </option>
+                    <div id="productInfosContent">
+                </select>
+            </article>
+        </section>
+    </main>
+</body>
+<script>
+    var swiper = new Swiper('.swiper', {
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+</script>
+
+</html>
