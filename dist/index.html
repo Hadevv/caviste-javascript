@@ -8,14 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
     <link href="output.css" rel="stylesheet">
     <!--Style de swiper-->
-    <link rel="stylesheet" href="../assets/style/styleSwiper.css" />
-    <link rel="icon" type="image/x-icon" href="../assets/img/logo_caviste_.svg">
-
-    <!--swiper scr-->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-
-    <script src="../assets/scripts/fetch.js"></script>
-
+    <link rel="stylesheet" href="../src/assets/style/styleSwiper.css" />
+    <link rel="icon" type="image/x-icon" href="../src/assets/img/logo_caviste_.svg">
     <style>
         html,
         body {
@@ -55,7 +49,7 @@
     <header class="bg-primary relative h-20 flex items-center">
         <!-- Logo à gauche -->
         <div class="flex items-center">
-            <img src="../assets/img/logo_caviste_.svg" alt="logo caviste" class="w-15 h-15">
+            <img src="../src/assets/img/logo_caviste_.svg" alt="logo caviste" class="w-15 h-15">
         </div>
         <!-- Titre principal milieu -->
         <div class="absolute inset-0 flex items-center justify-center">
@@ -96,7 +90,7 @@
                     <!--Fiche produit -->
                     <article id="product" class="bg-white rounded-lg p-4 flex flex-row ">
                         <div id="winePic" class="w-1/6 md:w-1/2 md:pr-4">
-                            <img src="../assets/img/bouteille.png" alt="photo du vin"
+                            <img src="../src/assets/img/btvins.png" alt="photo du vin"
                                 class=" w-full h-full object-contain rounded-lg">
                         </div>
                         <!-- Propriétés du vin -->
@@ -223,6 +217,11 @@
         </section>
     </main>
 </body>
+<!--swiper scr-->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<!-- <script src="../assets/scripts/fetch.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.1/fetch.min.js"></script>
+<script src="../src/index.js" type="module"></script>
 <script>
     var swiper = new Swiper('.swiper', {
         loop: true,

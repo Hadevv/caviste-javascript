@@ -1,4 +1,9 @@
-class FetchApi {
+export default class FetchApi {
+  /**
+   * Initialise une nouvelle instance de la classe FetchApi.
+   *
+   * @param url L'URL de l'API.
+   */
   constructor(url) {
     this.url = url;
   }
