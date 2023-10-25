@@ -15,6 +15,7 @@
         body {
             position: relative;
             height: 100vh;
+            
         }
 
         .swiper {
@@ -35,18 +36,14 @@
             padding: 12px;
         }
 
-        .swiper-pagination {
-            margin-bottom: 150px;
-            color: "#AE1829";
-            background-color: "#AE1829";
-        }
+        
     </style>
     <title>Projet Caviste</title>
 </head>
 
 <body class="bg-background">
-    <header class="relative h-20 flex items-center md:bg-secondary lg:bg-primary">
-       
+    <header class="relative h-20 flex items-center bg-primary">
+
         <!-- Logo à gauche -->
         <div class="flex items-center">
             <img src="../src/assets/img/logo_caviste_.svg" alt="logo caviste" class="w-15 h-15">
@@ -91,12 +88,12 @@
                     <article id="product" class="bg-white rounded-lg p-4 flex flex-row ">
                         <div id="winePic" class="w-1/6 md:w-1/2 md:pr-4">
                             <img src="../src/assets/img/btvins.png" alt="photo du vin"
-                                class=" w-full h-full object-contain rounded-lg">
+                                class=" w-full h-full object-contain rounded-lg mr-4 ">
                         </div>
                         <!-- Propriétés du vin -->
-                        <div class="md:w-1/2 md:pl-4">
-                            <h2 id="h2Title" class="text-2xl font-bold mb-4">Titre du produit</h2>
-                            <ul>
+                        <div class=":w-1/2 md:pl-4">
+                            <h2 id="h2Title" class="text-2xl font-bold mb-4 text-center">Titre du produit</h2>
+                            <ul class="">
                                 <li class="property" id="country">Pays</li>
                                 <li class="property" id="grapes">Cépages</li>
                                 <li class="property" id="year">Année</li>
@@ -110,7 +107,7 @@
                 </div>
                 <div class="swiper-slide mt-14">
                     <!--Fiche produit -->
-                    <article id="product">
+                    <article id="product" class="bg-white rounded-lg p-4 flex flex-row ">
                         <div class="titleDiv">
                             <h2 id="h2Title"></h2>
                         </div>
@@ -119,19 +116,22 @@
                             <img src="" alt="photo du vin" id="wineImg">
                         </div>
                         <!--propriétés du vin-->
-                        <ul id="productProperty">
-                            <li class="property" id="grapes">Grapes</li>
-                            <li class="property" id="country">Country</li>
-                            <li class="property" id="year">Year</li>
-                            <li class="property" id="capacity">Capacity</li>
-                            <li class="property" id="color">Color</li>
-                            <li class="property" id="price">Price</li>
-                        </ul>
+                        <div class="md:w-1/2 md:pl-4">
+                            <h2 id="h2Title" class="text-2xl font-bold mb-4">Titre du produit</h2>
+                            <ul id="productProperty">
+                                <li class="property" id="grapes">Grapes</li>
+                                <li class="property" id="country">Country</li>
+                                <li class="property" id="year">Year</li>
+                                <li class="property" id="capacity">Capacity</li>
+                                <li class="property" id="color">Color</li>
+                                <li class="property" id="price">Price</li>
+                            </ul>
+                        </div>
                     </article>
                 </div>
                 <div class="swiper-slide mt-14">
                     <!--Fiche produit -->
-                    <article id="product">
+                    <article id="product" class="bg-white rounded-lg p-4 flex flex-row ">
                         <div class="titleDiv">
                             <h2 id="h2Title"></h2>
                         </div>
@@ -140,19 +140,22 @@
                             <img src="" alt="photo du vin" id="wineImg">
                         </div>
                         <!--propriétés du vin-->
-                        <ul id="productProperty">
-                            <li class="property" id="grapes">Grapes</li>
-                            <li class="property" id="country">Country</li>
-                            <li class="property" id="year">Year</li>
-                            <li class="property" id="capacity">Capacity</li>
-                            <li class="property" id="color">Color</li>
-                            <li class="property" id="price">Price</li>
-                        </ul>
+                        <div class="md:w-1/2 md:pl-4">
+                            <h2 id="h2Title" class="text-2xl font-bold mb-4">Titre du produit</h2>
+                            <ul id="productProperty">
+                                <li class="property" id="grapes">Grapes</li>
+                                <li class="property" id="country">Country</li>
+                                <li class="property" id="year">Year</li>
+                                <li class="property" id="capacity">Capacity</li>
+                                <li class="property" id="color">Color</li>
+                                <li class="property" id="price">Price</li>
+                            </ul>
+                        </div>
                     </article>
                 </div>
             </div>
             <!-- Add Pagination -->
-            <div class="swiper-pagination"></div>
+            <div class="swiper-pagination "></div>
             <!-- Add Navigation -->
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
