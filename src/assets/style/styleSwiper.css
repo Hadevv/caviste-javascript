@@ -264,7 +264,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--swiper-navigation-color, var(--swiper-theme-color));
+  color: #AE1829;
 }
 .swiper-button-next.swiper-button-disabled,
 .swiper-button-prev.swiper-button-disabled {
@@ -378,6 +378,8 @@
   transform: scale(0.33);
 }
 .swiper-pagination-bullet {
+  position: relative  ;
+  bottom: 270px;
   width: var(
     --swiper-pagination-bullet-width,
     var(--swiper-pagination-bullet-size, 8px)
@@ -390,6 +392,7 @@
   border-radius: var(--swiper-pagination-bullet-border-radius, 50%);
   background: #DCBF89;
   opacity: var(--swiper-pagination-bullet-inactive-opacity, 0.2);
+  
 }
 button.swiper-pagination-bullet {
   border: none;
@@ -398,6 +401,7 @@ button.swiper-pagination-bullet {
   box-shadow: none;
   -webkit-appearance: none;
   appearance: none;
+
 }
 .swiper-pagination-clickable .swiper-pagination-bullet {
   cursor: pointer;

@@ -11,6 +11,7 @@ console.log(response);
 
 const data = await response;
 
+
 function creerSlide(wine) {
   const slide = document.createElement("div");
   slide.classList.add("swiper-slide");
@@ -38,25 +39,29 @@ function creerSlide(wine) {
   return slide;
 }
 
-const swiperContainer = document.querySelector(".swiper");
+
+const swiperContainer = document.querySelector('.swiper');
+
 
 data.forEach((wine) => {
+
   const slide = creerSlide(wine);
 
-  swiperContainer.querySelector(".swiper-wrapper").appendChild(slide);
+  swiperContainer.querySelector('.swiper-wrapper').appendChild(slide);
 
-  const img = slide.querySelector(".img");
+  const img = slide.querySelector('.img');
+
 });
 
 const swiper = new Swiper(swiperContainer, {
   loop: true,
   pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
+      el: '.swiper-pagination',
+      clickable: true,
   },
   navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
   },
 });
 
