@@ -79,90 +79,21 @@
                 </div>
             </form>
         </div>
-        <!--/////////////////////////////////////////////////////////////////////////////-->
+
         <!-- Swiper -->
         <div class="swiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide mt-14 ">
-                    <!--Fiche produit -->
-                    <article id="product" class="bg-white rounded-lg p-4 flex flex-row ">
-                        <div id="winePic" class="w-1/6 md:w-1/2 md:pr-4">
-                            <img src="../src/assets/img/btvins.png" alt="photo du vin"
-                                class=" w-full h-full object-contain rounded-lg mr-4 ">
-                        </div>
-                        <!-- Propriétés du vin -->
-                        <div class=":w-1/2 md:pl-4">
-                            <h2 id="h2Title" class="text-2xl font-bold mb-4 text-center">Titre du produit</h2>
-                            <ul class="">
-                                <li class="property" id="country">Pays</li>
-                                <li class="property" id="grapes">Cépages</li>
-                                <li class="property" id="year">Année</li>
-                                <li class="property" id="capacity">Capacité</li>
-                                <li class="property" id="color">Couleur</li>
-                                <li class="property" id="price">Prix</li>
-                            </ul>
-                        </div>
-                    </article>
-
-                </div>
-                <div class="swiper-slide mt-14">
-                    <!--Fiche produit -->
-                    <article id="product" class="bg-white rounded-lg p-4 flex flex-row ">
-                        <div class="titleDiv">
-                            <h2 id="h2Title"></h2>
-                        </div>
-                        <!--Photo produit -->
-                        <div id="winePic">
-                            <img src="" alt="photo du vin" id="wineImg">
-                        </div>
-                        <!--propriétés du vin-->
-                        <div class="md:w-1/2 md:pl-4">
-                            <h2 id="h2Title" class="text-2xl font-bold mb-4">Titre du produit</h2>
-                            <ul id="productProperty">
-                                <li class="property" id="grapes">Grapes</li>
-                                <li class="property" id="country">Country</li>
-                                <li class="property" id="year">Year</li>
-                                <li class="property" id="capacity">Capacity</li>
-                                <li class="property" id="color">Color</li>
-                                <li class="property" id="price">Price</li>
-                            </ul>
-                        </div>
-                    </article>
-                </div>
-                <div class="swiper-slide mt-14">
-                    <!--Fiche produit -->
-                    <article id="product" class="bg-white rounded-lg p-4 flex flex-row ">
-                        <div class="titleDiv">
-                            <h2 id="h2Title"></h2>
-                        </div>
-                        <!--Photo produit -->
-                        <div id="winePic">
-                            <img src="" alt="photo du vin" id="wineImg">
-                        </div>
-                        <!--propriétés du vin-->
-                        <div class="md:w-1/2 md:pl-4">
-                            <h2 id="h2Title" class="text-2xl font-bold mb-4">Titre du produit</h2>
-                            <ul id="productProperty">
-                                <li class="property" id="grapes">Grapes</li>
-                                <li class="property" id="country">Country</li>
-                                <li class="property" id="year">Year</li>
-                                <li class="property" id="capacity">Capacity</li>
-                                <li class="property" id="color">Color</li>
-                                <li class="property" id="price">Price</li>
-                            </ul>
-                        </div>
-                    </article>
-                </div>
+                <!--index.js inject-->
             </div>
+                
             <!-- Add Pagination -->
-            <div class="swiper-pagination "></div>
+            <div class="swiper-pagination"></div>
             <!-- Add Navigation -->
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
 
         </div>
 
-        <!--/////////////////////////////////////////////////////////////////////////////-->
         <!--Boutton like, rajout de photo & ajout de note-->
         <div class="flex space-x-4 justify-center gap-2 mt-8 mb-8">
             <div class="flex items-center " id="like">
@@ -225,18 +156,5 @@
 <!-- <script src="../assets/scripts/fetch.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.1/fetch.min.js"></script>
 <script src="../src/index.js" type="module"></script>
-<script>
-    var swiper = new Swiper('.swiper', {
-        loop: true,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-    });
-</script>
 
 </html>
