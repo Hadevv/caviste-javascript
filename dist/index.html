@@ -16,7 +16,7 @@
         body {
             position: relative;
             height: 100vh;
-            
+
         }
 
         .swiper {
@@ -36,9 +36,10 @@
         main {
             padding: 12px;
         }
-        .container-btv{
-        }
-        .btv{
+
+        .container-btv {}
+
+        .btv {
             width: 140px;
             height: 140px;
             object-fit: contain;
@@ -48,7 +49,6 @@
             margin-top: 20px;
 
         }
-        
     </style>
     <title>Projet Caviste</title>
 </head>
@@ -67,15 +67,16 @@
     <!--Contenu principal-->
     <main>
         <!--Formulaire de recherche-->
-        <div id="formDiv" class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 lg:bg-commentBg lg:w-1/4 lg:mt-16 ">
+        <div id="formDiv"
+            class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 lg:bg-commentBg lg:w-1/4 lg:mt-16 ">
             <!-- Champ de recherche -->
             <form id="form" class="w-full sm:w-auto lg:w-1/2 lg:mx-auto lg:flex lg:flex-col">
                 <input type="text"
                     class="bg-inputBg border-2 h-10 rounded text-center center border-borderInput input w-full mb-2 sm:mb-0 p-2 mr-auto  lg:justify-center lg:mx-0 lg:my-4  "
                     id="inputName" placeholder="Rechercher un vin">
-                <!-- Les trois boutons --> 
+                <!-- Les trois boutons -->
                 <div class="w-full sm:w-auto flex lg:flex-col lg:gap-5 mb-2">
-                     <!-- Selection de la couleur -->
+                    <!-- Selection de la couleur -->
                     <select class="bg-inputBg h-10 border-2 rounded input w-3/12 sm:w-auto" id="colorSelect">
                         <option value="color">Color</option>
                         <option value="red">Rouge</option>
@@ -83,7 +84,8 @@
                         <option value="pink">Rosé</option>
                     </select>
                     <!-- Selection de l'année -->
-                    <input type="number" class="bg-inputBg h-10 border-2 rounded input w-3/12 sm:w-auto mx-2 p-2 lg:mx-auto lg:w-full"
+                    <input type="number"
+                        class="bg-inputBg h-10 border-2 rounded input w-3/12 sm:w-auto mx-2 p-2 lg:mx-auto lg:w-full "
                         id="inputDate" min="1950" max="2023" placeholder="Year">
                     <!-- Selection  du pays -->
                     <select class="bg-inputBg h-10 border-2 rounded input w-4/12 sm:w-auto" id="countrySelect">
@@ -98,7 +100,7 @@
                 </div>
             </form>
         </div>
-        
+
 
 
         <!-- Swiper -->
@@ -106,8 +108,8 @@
             <div class="swiper-wrapper">
                 <!--index.js inject-->
             </div>
-                
-                
+
+
             <!-- Add Pagination -->
             <div class="swiper-pagination"></div>
             <!-- Add Navigation -->
