@@ -10,6 +10,7 @@
     <!--Style de swiper-->
     <link rel="stylesheet" href="../src/assets/style/styleSwiper.css" />
     <link rel="icon" type="image/x-icon" href="../src/assets/img/logo_caviste_.svg">
+    <script src="../src/script/redBtn.js"></script>
     <style>
         html,
         body {
@@ -60,27 +61,29 @@
                 <input type="text"
                     class="bg-inputBg border-2 h-10 rounded text-center center border-borderInput input w-full mb-2 sm:mb-0 p-2 mr-auto  lg:justify-center lg:mx-0 lg:my-4  "
                     id="inputName" placeholder="Rechercher un vin">
-                <!-- Les trois boutons -->
-                <div class="w-full sm:w-auto flex lg:flex-col lg:gap-5">
+                <!-- Les trois boutons --> 
+                <div class="w-full sm:w-auto flex lg:flex-col lg:gap-5 mb-2">
+                     <!-- Selection de la couleur -->
                     <select class="bg-inputBg h-10 border-2 rounded input w-3/12 sm:w-auto" id="colorSelect">
                         <option value="color">Color</option>
                         <option value="red">Rouge</option>
                         <option value="white">Blanc</option>
                         <option value="pink">Rosé</option>
                     </select>
+                    <!-- Selection de l'année -->
                     <input type="number" class="bg-inputBg h-10 border-2 rounded input w-3/12 sm:w-auto mx-2 p-2 lg:mx-auto lg:w-full"
                         id="inputDate" min="1950" max="2023" placeholder="Year">
+                    <!-- Selection  du pays -->
                     <select class="bg-inputBg h-10 border-2 rounded input w-4/12 sm:w-auto" id="countrySelect">
                         <option>Country</option>
                     </select>
-                    <div class="flex flex-col gap-1 lg:invisible mt-1 ml-2">
+                    <!---Bouton "more" -->
+                    <div class="flex flex-col gap-1 lg:invisible mt-1 ml-2 cursor-pointer " id="redBtn">
                         <div class="w-2 h-2 bg-primary rounded-lg ml-2"></div>
                         <div class="w-2 h-2 bg-primary rounded-lg ml-2"></div>
                         <div class="w-2 h-2 bg-primary rounded-lg ml-2"></div>
                     </div>
-                   
                 </div>
-                
             </form>
         </div>
         
