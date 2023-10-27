@@ -716,8 +716,8 @@ video {
 }
 
 @media (min-width: 1024px) {
-  .lg\:bg-secondary {
+  .lg\:bg-primary {
     --tw-bg-opacity: 1;
-    background-color: rgb(220 191 137 / var(--tw-bg-opacity));
+    background-color: rgb(174 24 41 / var(--tw-bg-opacity));
   }
 }
