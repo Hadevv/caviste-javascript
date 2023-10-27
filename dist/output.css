@@ -1109,6 +1109,10 @@ video {
 }
 
 @media (min-width: 1024px) {
+  .lg\:visible {
+    visibility: visible;
+  }
+
   .lg\:invisible {
     visibility: hidden;
   }
@@ -1215,6 +1219,22 @@ video {
 
   .lg\:bottom-36 {
     bottom: 9rem;
+  }
+
+  .lg\:left-28 {
+    left: 7rem;
+  }
+
+  .lg\:left-1\/4 {
+    left: 25%;
+  }
+
+  .lg\:-top-3 {
+    top: -0.75rem;
+  }
+
+  .lg\:left-0 {
+    left: 0px;
   }
 
   .lg\:mx-auto {
@@ -1369,6 +1389,14 @@ video {
     width: 50%;
   }
 
+  .lg\:w-1\/6 {
+    width: 16.666667%;
+  }
+
+  .lg\:cursor-pointer {
+    cursor: pointer;
+  }
+
   .lg\:flex-row {
     flex-direction: row;
   }
@@ -1393,8 +1421,32 @@ video {
     gap: 2.5rem;
   }
 
+  .lg\:gap-28 {
+    gap: 7rem;
+  }
+
+  .lg\:gap-14 {
+    gap: 3.5rem;
+  }
+
+  .lg\:gap-20 {
+    gap: 5rem;
+  }
+
+  .lg\:gap-2 {
+    gap: 0.5rem;
+  }
+
+  .lg\:gap-2\.5 {
+    gap: 0.625rem;
+  }
+
   .lg\:rounded-3xl {
     border-radius: 1.5rem;
+  }
+
+  .lg\:rounded-lg {
+    border-radius: 0.5rem;
   }
 
   .lg\:bg-commentBg {
@@ -1404,5 +1456,14 @@ video {
   .lg\:bg-primary {
     --tw-bg-opacity: 1;
     background-color: rgb(174 24 41 / var(--tw-bg-opacity));
+  }
+
+  .lg\:text-center {
+    text-align: center;
+  }
+
+  .lg\:text-secondary {
+    --tw-text-opacity: 1;
+    color: rgb(220 191 137 / var(--tw-text-opacity));
   }
 }
