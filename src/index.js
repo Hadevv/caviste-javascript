@@ -17,7 +17,7 @@ function creerSlide(wine) {
 
   slide.innerHTML = `
     <div id="product" class="bg-white rounded-lg p-4 flex flex-row ">
-    <div class="container-btv" class="flex-grow w-full md:pr-4">
+    <div class="container-btv" class="flex-grow w-full md:pr-4 ">
     <img class="btv " src="https://cruth.phpnet.org/epfc/caviste/public/pics/${wine.picture}" alt="photo du vin">
   </div>
       <div class="md:w-1/2 md:pl-4">
