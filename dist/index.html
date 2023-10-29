@@ -6,16 +6,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+    <!--autocomplete -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.min.css">
     <link href="output.css" rel="stylesheet">
     <!--Style de swiper-->
     <link rel="stylesheet" href="../src/assets/style/styleSwiper.css" />
     <link rel="icon" type="image/x-icon" href="../src/assets/img/logo_caviste_.svg">
     <!--Script points rouge-->
-    <script src="../src/script/redBtn.js"></script>
-    <!--Script recherche vin-->
-    <script type="module" src="../src/modules/wine.js"></script>
     
-    <script src="../src/index.js" type="module"></script>
    
     <style>
         html,
@@ -79,7 +77,7 @@
                 <form id="form" class="w-full sm:w-auto lg:w-1/2 lg:mx-auto lg:flex lg:flex-col">
                     <input type="text"
                         class="bg-inputBg border-2 h-10 rounded text-center center border-borderInput input w-full mb-2 sm:mb-0 p-2 mr-auto  lg:justify-center lg:mx-0 lg:my-4  "
-                        id="inputName" placeholder="Rechercher un vin">
+                        id="inputName" autocomplete="off" placeholder="Rechercher un vin">
                     <!-- Les trois boutons -->
                     <div class="w-full sm:w-auto flex lg:flex-col lg:gap-5 mb-2">
                         <!-- Selection de la couleur -->
@@ -213,8 +211,13 @@
 <!--swiper scr-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jimp/0.22.10/jimp.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<!--autocomplete -->
+<script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js"></script>
+
 <!-- <script src="../assets/scripts/fetch.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.1/fetch.min.js"></script>
+<script src="../src/script/redBtn.js"></script>
+<script src="../src/index.js" type="module"></script>
 
 
 </html>

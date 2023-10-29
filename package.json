@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@jimp/custom": "^0.22.10",
+    "@tarekraafat/autocomplete.js": "^10.2.7",
     "fetch": "^1.1.0",
     "jimp": "^0.22.10",
     "tailwindcss": "^3.3.5"
