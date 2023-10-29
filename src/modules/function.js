@@ -7,12 +7,13 @@ const countrySelect = document.getElementById("countrySelect");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  // Récupérez les valeurs des champs de recherche
+  // Récupérer les valeurs des champs de recherche
   const name = inputName.value;
   const color = colorSelect.value;
   const date = inputDate.value;
   const country = countrySelect.value;
 });
+
 
 export default function filterResults(results, name, color, date, country) {
   const filteredResults = [];

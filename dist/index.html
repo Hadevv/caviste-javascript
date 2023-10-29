@@ -10,13 +10,18 @@
     <!--Style de swiper-->
     <link rel="stylesheet" href="../src/assets/style/styleSwiper.css" />
     <link rel="icon" type="image/x-icon" href="../src/assets/img/logo_caviste_.svg">
+    <!--Script points rouge-->
     <script src="../src/script/redBtn.js"></script>
+    <!--Script recherche vin-->
+    <script type="module" src="../src/modules/wine.js"></script>
+    
+    <script src="../src/index.js" type="module"></script>
+   
     <style>
         html,
         body {
             position: relative;
             height: 100vh;
-
         }
 
         .swiper {
@@ -66,7 +71,7 @@
     <!--Contenu principal-->
     <main>
         <!--Div formulaire et carousel-->
-        <div class="lg:flex lg:flex-wrap">
+        <div class="lg:flex lg:flex-wrap lg:justify-between">
             <!--Formulaire de recherche-->
             <div id="formDiv"
                 class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 lg:bg-commentBg lg:w-1/4 lg:mt-16 ">
@@ -78,7 +83,7 @@
                     <!-- Les trois boutons -->
                     <div class="w-full sm:w-auto flex lg:flex-col lg:gap-5 mb-2">
                         <!-- Selection de la couleur -->
-                        <select class="bg-inputBg h-10 border-2 rounded input w-3/12 sm:w-auto" id="colorSelect">
+                        <select id="colorSelector" class="bg-inputBg h-10 border-2 rounded input w-3/12 sm:w-auto">
                             <option value="color">Color</option>
                             <option value="red">Rouge</option>
                             <option value="white">Blanc</option>
@@ -105,22 +110,22 @@
 
 
             <!-- Swiper -->
-            <div class=" lg:w-3/4 relative  lg:-top-2/4 lg:flex lg:flex-col ">
-                <div class="swiper">
-                    <div class="swiper-wrapper">
-                        <!--index.js inject-->
+                <div class=" lg:w-1/2 relative  lg:-top-2/4 lg:flex lg:flex-col  ">
+                    <div class="swiper">
+                        <div class="swiper-wrapper">
+                            <!--index.js inject-->
+                        </div>
                     </div>
+
+
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+                    <!-- Add Navigation -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+
                 </div>
-
-
-                <!-- Add Pagination -->
-                <div class="swiper-pagination"></div>
-                <!-- Add Navigation -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-
             </div>
-        </div>
         <!--Fin div formulaire et carousel-->
 
 
@@ -210,6 +215,6 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <!-- <script src="../assets/scripts/fetch.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.1/fetch.min.js"></script>
-<script src="../src/index.js" type="module"></script>
+
 
 </html>

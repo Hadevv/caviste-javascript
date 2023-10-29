@@ -11,7 +11,7 @@ export default class FetchApi {
   /**
    * Exécute une requête GET.
    *
-   * @param params Les paramètres de la requête.
+   * @param params Les paramètres de la requête
    * @return La réponse de la requête.
    */
   get(params) {
