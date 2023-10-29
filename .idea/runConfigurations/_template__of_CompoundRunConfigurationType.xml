@@ -1,6 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="true" type="CompoundRunConfigurationType">
-    <toRun name="index.html" type="JavascriptDebugType" />
-    <method v="2" />
-  </configuration>
-</component>
