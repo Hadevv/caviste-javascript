@@ -44,8 +44,9 @@ inputName.addEventListener("input", (e) => {
 
     // Créez les slides filtrées
     winesTabFiltre.forEach((wineObject) => {
-      const slide = creerSlide(wineObject);
-      swiperContainer.querySelector(".swiper-wrapper").appendChild(slide);
+      console.log(wineObject);
+      const filtreSlide = creerSlide(wineObject);
+      swiperContainer.querySelector(".swiper-wrapper").appendChild(filtreSlide);
     });
   }
 });
