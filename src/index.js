@@ -58,18 +58,24 @@ const colorSelector = document.getElementById("colorSelector");
 let colorWanted = ""; //la couleur qu'on souhaite
 
 colorSelector.addEventListener("change", (e) => {
-  const winesTabFiltre = filterResults(data, inputName.value); // Filtrer les données
   colorWanted = colorSelector.value;
   swiperContainer.querySelector(".swiper-wrapper").innerHTML = ""; //vider le slider
  
   //Pour chaque vin
-  if(colorWanted == "red" || colorWanted == "pink" || colorWanted == "white"){
+  if(colorWanted === "red" || colorWanted === "pink" || colorWanted === "white"){
     for (let wineObject of data) {
-      if (wineObject.color == colorWanted) {
+      if (wineObject.color === colorWanted) {
         const filtreSlide = creerSlide(wineObject);
         swiperContainer.querySelector(".swiper-wrapper").appendChild(filtreSlide);
       }
     }
+
+  }else if(colorWanted === "color"){
+    data.forEach((wineObject) => {
+      const slide = creerSlide(wineObject); //crée une slide avec les données du vin
+      //ajoute la slide à la div swiper-wrapper
+      swiperContainer.querySelector(".swiper-wrapper").appendChild(slide);
+    });
     //Si la couleur a une autre valeur affiche une alerte
   }else{
     alert("la couleur n'existe pas")
