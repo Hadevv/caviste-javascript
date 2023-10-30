@@ -1,11 +1,11 @@
 export function creerSlide(wineObject) {
-  const slide = document.createElement("div"); //crée une div pour la slide
-  slide.classList.add("swiper-slide"); //ajoute la classe swiper-slide à la div
+  const divSlide = document.createElement("div"); //crée une div pour la slide
+  divSlide.classList.add("swiper-slide"); //ajoute la classe swiper-slide à la div
 
   URL = "https://cruth.phpnet.org/epfc/caviste/public/pics/";
 
   //contenu de la slide
-  slide.innerHTML = `
+  divSlide.innerHTML = `
     <div class="bg-white rounded-lg p-4 flex flex-row product ">
       <div class="container-btv" class="flex-grow w-full md:pr-4 ">
         <img class="btv " src="${URL + wineObject.picture}" alt="photo du vin">
@@ -24,8 +24,9 @@ export function creerSlide(wineObject) {
     </div>
   `;
 
-  return slide;
+  return divSlide;
 }
+
 
 // fonction de filtrage
 export function filterResults(data, filterValue) {
@@ -53,4 +54,6 @@ export function newSwiper(wrapper) {
       prevEl: ".swiper-button-prev",
     },
   });
+ 
+  
 }
