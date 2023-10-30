@@ -1,3 +1,9 @@
+/**
+ * Permet de créer une div contenant les informations d'un vin
+ * 
+ * @param {object} wineObject un objet vin
+ * @returns  {HTMLElement} Une div contenant les informations du vin
+ */
 export function creerSlide(wineObject) {
   const divSlide = document.createElement("div"); //crée une div pour la slide
   divSlide.classList.add("swiper-slide"); //ajoute la classe swiper-slide à la div
@@ -27,24 +33,29 @@ export function creerSlide(wineObject) {
   return divSlide;
 }
 
-
+/**
+ * Permet de filtrer les vins en fonction de la valeur de l'input
+ *
+ * @param {Array} tabWinesObjects Un tableau d'objets de vins
+ * @param {string} inputValue La valeur du champs de recherche
+ * @returns {Array} Un tableau d'objets de vins filtrés
+ */
 // fonction de filtrage
-export function filterResults(data, filterValue) {
-  return data.filter((wine) =>
-    wine.name.toLowerCase().includes(filterValue.toLowerCase())
+export function filterResults(tabWinesObjects, inputValue) {
+  return tabWinesObjects.filter((wine) =>
+    wine.name.toLowerCase().includes(inputValue.toLowerCase())
   );
 }
 
 /**
  * Permet de créer un nouveau swiper
- * 
+ *
  * @param {HTMLElement} wrapper Le HTML du swiper que l'on souhaite créer
  */
 export function newSwiper(wrapper) {
- // Initialisation de Swiper
+  // Initialisation de Swiper
   const swiper = new Swiper(wrapper, {
-    loop: true,
-    slidesPerView: 'auto', //Nombre de slides en dynamique
+    slidesPerView: "auto", //Nombre de slides en dynamique
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
@@ -54,6 +65,6 @@ export function newSwiper(wrapper) {
       prevEl: ".swiper-button-prev",
     },
   });
- 
-  
 }
+
+

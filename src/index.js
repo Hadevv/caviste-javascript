@@ -23,31 +23,22 @@ newSwiper(swiperContainer);
 
 // Écoutez l'événement de recherche
 inputName.addEventListener("input", (e) => {
-  console.log(inputName.value);
-  if (inputName.value.length >= 3) {
-    // Supprimez les slides existantes
-    swiperContainer.querySelector(".swiper-wrapper").innerHTML = "";
-
-    // Filtrez les données
-    const winesTabFiltre = filterResults(data, inputName.value);
-    //console.log(winesTabFiltre);
-
-    // Créez les slides filtrées
-    winesTabFiltre.forEach((wineObject) => {
-      //console.log(wineObject);
-      const filtreSlide = creerSlide(wineObject);
-      swiperContainer.querySelector(".swiper-wrapper").appendChild(filtreSlide);
-    });
-  } else {
-    // Supprimer les slides existantes
-    swiperContainer.querySelector(".swiper-wrapper").innerHTML = "";
-
-    // Créez les slides filtrées
+  // Supprimez les slides existantes
+  swiperContainer.querySelector(".swiper-wrapper").innerHTML = "";
+  // Filtrer les données
+  const winesTabFiltre = filterResults(data, inputName.value);
+  // Créer les slides filtrées
+  winesTabFiltre.forEach((wineObject) => {
+    const filtreSlide = creerSlide(wineObject);
+    swiperContainer.querySelector(".swiper-wrapper").appendChild(filtreSlide);
+  });
+  if (inputName.value.length === 0) {
+    //si la valeur de l'input est vide
+    swiperContainer.querySelector(".swiper-wrapper").innerHTML = ""; // Supprimer les slides existantes
+    // afficher toutes les slides
     data.forEach((wineObject) => {
       const slide = creerSlide(wineObject);
       swiperContainer.querySelector(".swiper-wrapper").appendChild(slide);
     });
   }
-
-  // Vérifiez si la valeur de filtrage est supérieure à 3
 });
