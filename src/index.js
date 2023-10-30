@@ -1,6 +1,6 @@
 // Import 
 import FetchApi from "./modules/fetchApi.js";
-import { creerSlide, filterResults } from "./modules/function.js";
+import { creerSlide, filterResults, newSwiper } from "./modules/function.js";
 
 // Initialisation de l'API
 const api = new FetchApi("http://cruth.phpnet.org/epfc/caviste/public/index.php/api/wines");
@@ -16,18 +16,9 @@ data.forEach((wineObject) => {
   swiperContainer.querySelector(".swiper-wrapper").appendChild(defSlide);
 });
 
-// Initialisation de Swiper
-const swiper = new Swiper(swiperContainer, {
-  loop: true,
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-});
+//Initialisation du swiper
+newSwiper(swiperContainer);
+
 
 // Écoutez l'événement de recherche
 inputName.addEventListener("input", (e) => {
@@ -40,14 +31,15 @@ inputName.addEventListener("input", (e) => {
 
     // Filtrez les données
     const winesTabFiltre = filterResults(data, inputName.value);
-    console.log(winesTabFiltre);
+    //console.log(winesTabFiltre);
 
     // Créez les slides filtrées
     winesTabFiltre.forEach((wineObject) => {
-      console.log(wineObject);
+      //console.log(wineObject);
       const filtreSlide = creerSlide(wineObject);
       swiperContainer.querySelector(".swiper-wrapper").appendChild(filtreSlide);
     });
   }
 });
+
 

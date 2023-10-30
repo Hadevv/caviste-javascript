@@ -29,5 +29,28 @@ export function creerSlide(wineObject) {
 
 // fonction de filtrage
 export function filterResults(data, filterValue) {
-  return data.filter((wine) => wine.name.toLowerCase().includes(filterValue.toLowerCase()));
+  return data.filter((wine) =>
+    wine.name.toLowerCase().includes(filterValue.toLowerCase())
+  );
+}
+
+/**
+ * Permet de créer un nouveau swiper
+ * 
+ * @param {HTMLElement} wrapper Le HTML du swiper que l'on souhaite créer
+ */
+export function newSwiper(wrapper) {
+ // Initialisation de Swiper
+  const swiper = new Swiper(wrapper, {
+    loop: true,
+    slidesPerView: 'auto', //Nombre de slides en dynamique
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
 }
