@@ -1,6 +1,6 @@
 /**
  * Permet de créer une div contenant les informations d'un vin
- * 
+ *
  * @param {object} wineObject un objet vin
  * @returns  {HTMLElement} Une div contenant les informations du vin
  */
@@ -66,7 +66,5 @@ export function newSwiper(wrapper) {
     },
   });
 }
-
-
 
 
