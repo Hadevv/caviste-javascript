@@ -15,7 +15,7 @@
     <link rel="icon" type="image/x-icon" href="../src/assets/img/logo_caviste_.svg">
     <!--Style du slider-->
     <link rel="stylesheet" href="../node_modules/nouislider/dist/nouislider.css">
-    <link rel="stylesheet" href="../src/assets/style/styleSlider.css">
+    <link rel="stylesheet" href="../src/assets/style/additionalStyle.css">
 
 
     <style>
@@ -59,7 +59,7 @@
 </head>
 
 <body class="bg-background">
-    <header class="relative h-20 flex items-center bg-primary">
+    <header class="relative h-20 flex items-center bg-primary justify-between ">
         <!-- Logo à gauche -->
         <div class="flex items-center">
             <img src="../src/assets/img/logo_caviste_.svg" alt="logo caviste" class="w-15 h-15">
@@ -67,6 +67,11 @@
         <!-- Titre principal milieu -->
         <div class="absolute inset-0 flex items-center justify-center">
             <h1 class="text-secondary font-niconne text-3xl ">Caviste</h1>
+        </div>
+        <div id="burgerMenu" class="flex flex-col gap-1 relative right-5 top-1 lg:invisible">
+            <div id="lineTop" class="w-5 h-1 bg-secondary"></div>
+            <div id="lineMid" class="w-5 h-1 bg-secondary"></div>
+            <div id="lineBot" class="w-5 h-1 bg-secondary"></div>
         </div>
     </header>
     <!--Contenu principal-->
@@ -230,9 +235,9 @@
 
 <!-- <script src="../assets/scripts/fetch.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.1/fetch.min.js"></script>
-<script src="../src/script/redBtn.js"></script>
+<script src="../src/script/redBtn.js" type="module"></script>
 <script src="../src/index.js" type="module"></script>
-<script src="../src/modules/range.js" type="module"></script>
+<script src="../src/script/burger.js" type="module"></script>
 
 
 </html>

@@ -558,6 +558,14 @@ video {
   left: 0px;
 }
 
+.right-5 {
+  right: 1.25rem;
+}
+
+.top-1 {
+  top: 0.25rem;
+}
+
 .mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -624,6 +632,10 @@ video {
 
 .w-3\/6 {
   width: 50%;
+}
+
+.w-5 {
+  width: 1.25rem;
 }
 
 .w-full {
@@ -712,6 +724,11 @@ video {
 .bg-primary {
   --tw-bg-opacity: 1;
   background-color: rgb(174 24 41 / var(--tw-bg-opacity));
+}
+
+.bg-secondary {
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 191 137 / var(--tw-bg-opacity));
 }
 
 .p-2 {

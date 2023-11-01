@@ -45,7 +45,7 @@ export function filterResults(tabWinesObjects, inputValue) {
   const normalizedInput = inputValue.replaceAll(/[â]/g, "a").toLowerCase();
 
   return tabWinesObjects.filter((wine) => {
-    const normalizedWineName = wine.name.replaceAll(/[â]/g, "a").toLowerCase()
+    const normalizedWineName = wine.name.replaceAll(/[â]/g, "a").toLowerCase();
     return normalizedWineName.includes(normalizedInput);
   });
 }
@@ -70,4 +70,16 @@ export function newSwiper(wrapper) {
   });
 }
 
+/**
+ * permet de rajouter plusieurs attributs d'un coup à un élément
+ * exemple setAttributes(userName, {"id":"userName", "type":"text"})
+ *
+ * @param {string} element
+ * @param {string} attributes
+ */
 
+export default function setAttributes(element, attributes) {
+  for (var key in attributes) {
+    element.setAttribute(key, attributes[key]);
+  }
+}
