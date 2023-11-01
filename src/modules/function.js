@@ -42,9 +42,12 @@ export function creerSlide(wineObject) {
  */
 // fonction de filtrage
 export function filterResults(tabWinesObjects, inputValue) {
-  return tabWinesObjects.filter((wine) =>
-    wine.name.toLowerCase().includes(inputValue.toLowerCase())
-  );
+  const normalizedInput = inputValue.replaceAll(/[â]/g, "a").toLowerCase();
+
+  return tabWinesObjects.filter((wine) => {
+    const normalizedWineName = wine.name.replaceAll(/[â]/g, "a").toLowerCase()
+    return normalizedWineName.includes(normalizedInput);
+  });
 }
 
 /**
