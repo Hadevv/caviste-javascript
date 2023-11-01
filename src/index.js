@@ -191,8 +191,8 @@ const priceMin = document.getElementById("priceMin");
 const priceMax = document.getElementById("priceMax");
 const slide = document.getElementById("line"); // div slider
 
-priceMin.innerHTML = minVal;
-priceMax.innerHTML = maxVal;
+priceMin.innerHTML = minVal + "€";
+priceMax.innerHTML = maxVal + "€";
 
 //création du slider
 noUiSlider.create(slide, {
@@ -218,6 +218,7 @@ slide.noUiSlider.on("slide", (e) => {
       swiperContainer.querySelector(".swiper-wrapper").appendChild(filtreSlide);
     }
   }
-
+  priceMin.innerHTML = slide.noUiSlider.get()[0] + "€";
+  priceMax.innerHTML = slide.noUiSlider.get()[1] + "€";
   console.log(slide.noUiSlider.get());
 });

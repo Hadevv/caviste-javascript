@@ -23,15 +23,17 @@ export default class FetchApi {
 
   /**
    * Exécute une requête POST.
-   *
+   * 
+   * @param user l'utilisateur pour la méthode post
    * @param data Les données de la requête.
    * @return La réponse de la requête.
    */
-  post(data) {
+  post(user, data) {
     return this.fetch(this.url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: "Basic " + btoa(user + ":123"),
       },
       body: JSON.stringify(data),
     });
