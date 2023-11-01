@@ -1,6 +1,8 @@
 // Import
 import FetchApi from "./modules/fetchApi.js";
+//Importe les fonctions
 import { creerSlide, filterResults, newSwiper } from "./modules/function.js";
+import noUiSlider from "../../node_modules/nouislider/dist/nouislider.min.mjs";
 
 // Initialisation de l'API
 const api = new FetchApi(
@@ -57,7 +59,6 @@ inputName.addEventListener("input", (e) => {
 const colorSelector = document.getElementById("colorSelector");
 let colorWanted = ""; //la couleur qu'on souhaite
 
-
 colorSelector.addEventListener("change", (e) => {
   //on récupère la valeur de la couleur selectionnée
   colorWanted = colorSelector.value;
@@ -105,9 +106,9 @@ colorSelector.addEventListener("change", (e) => {
 /*EVENT: CHERCHER PAR PAYS */
 /**************************************************************************************************** */
 
-          /********************************************************
-          * Ajout des vins dans la <select> de manière dynamique *
-          *********************************************************/
+/********************************************************
+ * Ajout des vins dans la <select> de manière dynamique *
+ *********************************************************/
 const countrySelector = document.getElementById("countrySelect");
 console.log(countrySelector.childElementCount);
 const tabCountries = [];
@@ -173,4 +174,50 @@ countrySelector.addEventListener("change", (e) => {
   } else {
     console.log("country not in the list");
   }
+});
+
+/************************************************************************************************** */
+/*EVENT: CHERCHER PAR TRANCHE DE PRIX */
+/**************************************************************************************************** */
+let tabPrice = []; // le tableau des prix
+//ajouter tout les prix dans un tableau
+data.forEach((wineObject) => {
+  tabPrice.push(parseFloat(wineObject.price));
+});
+//Définition des valeurs minimale et maximale
+const minVal = Math.min(...tabPrice);
+const maxVal = Math.max(...tabPrice);
+const priceMin = document.getElementById("priceMin");
+const priceMax = document.getElementById("priceMax");
+const slide = document.getElementById("line"); // div slider
+
+priceMin.innerHTML = minVal;
+priceMax.innerHTML = maxVal;
+
+//création du slider
+noUiSlider.create(slide, {
+  start: [minVal, maxVal],
+  connect: true,
+  range: {
+    min: minVal,
+    max: maxVal,
+  },
+});
+
+//ajout d'evenement au moment où on slide
+slide.noUiSlider.on("slide", (e) => {
+  swiperContainer.querySelector(".swiper-wrapper").innerHTML = ""; // Vider le slider
+  //boucle d'affichage des vins
+  for (let wineObject of data) {
+    //condition de de tri
+    if (
+      parseFloat(wineObject.price) > slide.noUiSlider.get()[0] &&
+      parseFloat(wineObject.price) < slide.noUiSlider.get()[1]
+    ) {
+      const filtreSlide = creerSlide(wineObject);
+      swiperContainer.querySelector(".swiper-wrapper").appendChild(filtreSlide);
+    }
+  }
+
+  console.log(slide.noUiSlider.get());
 });
