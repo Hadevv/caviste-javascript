@@ -13,6 +13,7 @@ export function creerSlide(wineObject) {
   //contenu de la slide
   divSlide.innerHTML = `
     <div class="bg-white rounded-lg p-4 flex flex-row product ">
+    <li class="property jetetiens" style="display: none;">${wineObject.description}</li>
       <div class="container-btv" class="flex-grow w-full md:pr-4 ">
         <img class="btv " src="${URL + wineObject.picture}" alt="photo du vin">
       </div>
@@ -69,8 +70,38 @@ export function newSwiper(wrapper) {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
     },
+
+  });
+  // On récupère la div qui contiendra la description
+  const divDescription = document.getElementById("productInfosContent");
+  // On crée un paragraphe qui contiendra la description
+  const pDescription = document.createElement("p");
+  // On ajoute le paragraphe du premier vin à la div
+  pDescription.innerHTML =
+    "With hints of ginger and spice, this wine makes an excellent complement to light appetizer and dessert fare for a holiday gathering.";
+  // On ajoute le paragraphe à la div
+  divDescription.appendChild(pDescription);
+
+  // On écoute l'événement slideChange
+  swiper.on("slideChange", () => {
+    // On récupère la slide active
+    const activeSlide = swiper.slides[swiper.activeIndex];
+    // On récupère l'élément qui contient la description
+    const descriptionElement = activeSlide.querySelector(".jetetiens");
+    // Si l'élément existe
+    if (descriptionElement) {
+      // On vide la div
+      divDescription.innerHTML = "";
+      // On récupère le texte de la description
+      const description = descriptionElement.textContent;
+      // On ajoute la description à notre paragraphe
+      pDescription.innerHTML = description;
+      // On ajoute le paragraphe à la div
+      divDescription.appendChild(pDescription);
+    }
   });
 }
+
 
 /**
  * permet de rajouter plusieurs attributs d'un coup à un élément
