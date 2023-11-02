@@ -34,7 +34,7 @@ export function creerSlide(wineObject) {
 }
 
 /**
- * Permet de filtrer les vins en fonction de la valeur de l'input
+ *
  *
  * @param {Array} tabWinesObjects Un tableau d'objets de vins
  * @param {string} inputValue La valeur du champs de recherche
@@ -42,10 +42,12 @@ export function creerSlide(wineObject) {
  */
 // fonction de filtrage
 export function filterResults(tabWinesObjects, inputValue) {
+  let normalizedWineName = ""; // résultat des vins ou on remplace les accents
+  //input des vins ou on remplace les accents
   const normalizedInput = inputValue.replaceAll(/[â]/g, "a").toLowerCase();
 
   return tabWinesObjects.filter((wine) => {
-    const normalizedWineName = wine.name.replaceAll(/[â]/g, "a").toLowerCase();
+    normalizedWineName = wine.name.replaceAll(/[â]/g, "a").toLowerCase();
     return normalizedWineName.includes(normalizedInput);
   });
 }
@@ -81,5 +83,87 @@ export function newSwiper(wrapper) {
 export default function setAttributes(element, attributes) {
   for (var key in attributes) {
     element.setAttribute(key, attributes[key]);
+  }
+}
+
+/**
+ *
+ * fonction de récupération dans un fichier json
+ *
+ * @param {array} tabData le tableau d'objet
+ * @param {string} key la propriété de l'objet qu'on souhaite récupérer
+ *
+ */
+
+export function getData(tabData, key) {
+  //récupère toute les clés de l'objet
+  let tabKeys = Object.keys(tabData[0]);
+  let value = [];
+  //si la clé entrée par l'user existe
+  if (tabKeys.includes(key)) {
+    value = [key];
+    for (let data of tabData) {
+      if (!value.includes(data[key])) {
+        value.push(data[key]);
+      }
+    }
+  } else {
+    console.log("valeur inconnue");
+  }
+  return value;
+}
+
+/**
+ * Crée plusieurs éléments html en fonction du tableau donné
+ *
+ * @param {array} tabData  le tableau des valeurs
+ * @param {string} htmlElement  l'élement HTML qu'on souhaite créer
+ * @param {string} parentHtmlElement l'élément parent
+ */
+export function createMultiElements(tabData, htmlElement, parentHtmlElement) {
+  tabData.forEach((data) => {
+    let dataElement = document.createElement(htmlElement);
+    dataElement.innerHTML = data; // on lui donne la valeur
+    //si le nombre d'enfant <= tableau de données, on ajoute les enfants
+    if (parentHtmlElement.childElementCount <= tabData.length) {
+      parentHtmlElement.appendChild(dataElement);
+    }
+  });
+}
+
+/**
+ *
+ * @param {array} tabKeys le tableau des clés, tabKey[0] == selectorName
+ * @param {string} wanted ce que l'on recherche
+ * @param {arrayOfObject} jsonDataObject le json entier
+ */
+
+export function dataFilter(tabKeys, wanted, jsonDataObject) {
+  let swiperContainer = document.querySelector(".swiper"); //L'ensemble du swiper
+  //si le tableau inclus ce qu'on recherche
+  if (tabKeys.includes(wanted)) {
+    console.log(wanted);
+    console.log(tabKeys[0]);
+    //alors on crée un objet pour chaque donnée d'objet dans json data
+    for (let dataObject of jsonDataObject) {
+      if (dataObject[tabKeys[0]] === wanted) {
+        //on crée une slide avec les données du vin
+        const filtredSlide = creerSlide(dataObject);
+        swiperContainer
+          .querySelector(".swiper-wrapper")
+          .appendChild(filtredSlide);
+        //si ce que l'on cherche == index du tableau 0
+      } else if (wanted == tabKeys[0]) {
+        jsonDataObject.forEach((dataObject) => {
+          const filtredSlide = creerSlide(dataObject);
+          swiperContainer
+            .querySelector(".swiper-wrapper")
+            .appendChild(filtredSlide);
+        });
+        break; // arréter la boucle pour éviter de rajouter des doublons
+      }
+    }
+  } else {
+    console.log("data not in the list");
   }
 }

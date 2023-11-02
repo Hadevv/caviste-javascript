@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
       divContentConnect = document.createElement("div");
       //attribut it à div
       divContentConnect.setAttribute("id", "contentConnect");
+      divContentConnect.setAttribute("class", "contentConnect");
       //ajout des attributs
       //username
       setAttributes(userName, {
@@ -33,6 +34,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
         class: "inputFormConnect",
         type: "text",
         placeholder: "login",
+        name : "username"
       });
       //password
       setAttributes(password, {
@@ -62,4 +64,5 @@ document.addEventListener("DOMContentLoaded", async (e) => {
       divContentConnect = "";
     }
   });
+  
 });

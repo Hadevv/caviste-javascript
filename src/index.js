@@ -1,7 +1,14 @@
 // Import
 import FetchApi from "./modules/fetchApi.js";
 //Importe les fonctions
-import { creerSlide, filterResults, newSwiper } from "./modules/function.js";
+import {
+  creerSlide,
+  filterResults,
+  newSwiper,
+  getData,
+  createMultiElements,
+  dataFilter,
+} from "./modules/function.js";
 import noUiSlider from "../../node_modules/nouislider/dist/nouislider.min.mjs";
 
 // Initialisation de l'API
@@ -11,7 +18,7 @@ const api = new FetchApi(
 const response = await api.get();
 const data = await response;
 console.log(data); //Tableau des vins
-const swiperContainer = document.querySelector(".swiper"); //L'ensemble du swiper
+let swiperContainer = document.querySelector(".swiper"); //L'ensemble du swiper
 const inputName = document.getElementById("inputName"); //élément input pour le nom du vin
 let tabName = []; //tableau des noms de vins
 
@@ -19,7 +26,6 @@ let tabName = []; //tableau des noms de vins
 for (let i = 0; i < data.length; i++) {
   tabName.push(data[i].name);
 }
-
 // crée une slide pour chaque vin
 data.forEach((wineObject) => {
   const slide = creerSlide(wineObject); //crée une slide avec les données du vin
@@ -57,45 +63,13 @@ inputName.addEventListener("input", (e) => {
 /**************************************************************************************************** */
 
 const colorSelector = document.getElementById("colorSelector");
-let colorWanted = ""; //la couleur qu'on souhaite
+const tabColors = getData(data, "color"); // tableau des couleurs
+createMultiElements(tabColors, "option", colorSelector);
 
 colorSelector.addEventListener("change", (e) => {
-  //on récupère la valeur de la couleur selectionnée
-  colorWanted = colorSelector.value;
+  let colorWanted = colorSelector.value; //la couleur qu'on souhaite
   swiperContainer.querySelector(".swiper-wrapper").innerHTML = ""; // Vider le slider
-
-  //conditions d'affichage
-  //si la couleur selectionnée respecte ces 3 couleurs
-  if (
-    colorWanted === "red" ||
-    colorWanted === "pink" ||
-    colorWanted === "white"
-  ) {
-    //on affiche les vins de la couleur selectionnée
-    for (let wineObject of data) {
-      //si la couleur du vin est égal à la couleur selectionnée
-      if (wineObject.color === colorWanted) {
-        //on crée une slide avec les données du vin
-        const filtreSlide = creerSlide(wineObject);
-        swiperContainer
-          .querySelector(".swiper-wrapper")
-          .appendChild(filtreSlide);
-      }
-    }
-    //si choisi color, on affiche tout les vins
-  } else if (colorWanted === "color") {
-    //on affiche tout les vins
-    data.forEach((wineObject) => {
-      const slide = creerSlide(wineObject);
-      swiperContainer.querySelector(".swiper-wrapper").appendChild(slide);
-    });
-    //sinon on affiche un message d'erreur
-    /**
-     * TODO: afficher un message d'erreur
-     */
-  } else {
-    alert("la couleur n'existe pas");
-  }
+  dataFilter(tabColors, colorWanted, data);
 });
 
 /************************************************************************************************** */
@@ -110,70 +84,19 @@ colorSelector.addEventListener("change", (e) => {
  * Ajout des vins dans la <select> de manière dynamique *
  *********************************************************/
 const countrySelector = document.getElementById("countrySelect");
-console.log(countrySelector.childElementCount);
-const tabCountries = [];
-countrySelector.addEventListener("click", async (e) => {
-  //ajouter tout les vins dans un tableau
-  data.forEach((wineObject) => {
-    //si le pays n'existe pas dans le tableau, on ajoute le pays dans le tableau
-    if (!tabCountries.includes(wineObject.country)) {
-      tabCountries.push(wineObject.country);
-    }
-  });
-  //country = nom du Pays
-  tabCountries.forEach((country) => {
-    //Tant qu'il est plus petit ou égal rajoute les pays
-    //CountrySelector = <select>
-    if (countrySelector.childElementCount <= tabCountries.length) {
-      //Country element = <option></option>
-      let countryElement = document.createElement("option"); // on crée un élément
-      countryElement.innerHTML = country; // on lui donne la valeur du pays
-      countryElement.setAttribute("value", country); // on lui donne un attribut value
-      countrySelector.appendChild(countryElement);
-    }
-  });
-});
-
+//récupère le nom de tout les pays
+let tabCountries = getData(data, "country");
+//crée plusieurs élément que l'on souhaite
+createMultiElements(tabCountries, "option", countrySelector);
 /********************************************************
  * gestion d'évènement                                   *
  *********************************************************/
-
 let countryWanted = ""; // variable qui contiendra la string du pays selectionné
-
 countrySelector.addEventListener("change", (e) => {
   //on récupère la valeur du pays selectionné
   countryWanted = countrySelector.value;
-
   swiperContainer.querySelector(".swiper-wrapper").innerHTML = ""; // Vider le slider
-
-  //conditions d'affichage
-  //si le pays selectionné est dans le tableau des pays
-  if (tabCountries.includes(countryWanted)) {
-    //on affiche les vins du pays selectionné
-    for (let wineObject of data) {
-      //si le pays du vin est égal au pays selectionné
-      if (wineObject.country === countryWanted) {
-        //on crée une slide avec les données du vin
-        const filtreSlide = creerSlide(wineObject);
-        swiperContainer
-          .querySelector(".swiper-wrapper")
-          .appendChild(filtreSlide);
-      }
-    }
-    //si choisi country, on affiche tout les vins
-  } else if (countryWanted === "Country") {
-    //on affiche tout les vins
-    data.forEach((wineObject) => {
-      const slide = creerSlide(wineObject);
-      swiperContainer.querySelector(".swiper-wrapper").appendChild(slide);
-    });
-    //sinon on affiche un message d'erreur
-    /**
-     * TODO: afficher un message d'erreur
-     */
-  } else {
-    console.log("country not in the list");
-  }
+  dataFilter(tabCountries, countryWanted, data);
 });
 
 /************************************************************************************************** */
