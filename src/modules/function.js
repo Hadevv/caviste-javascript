@@ -132,18 +132,17 @@ export function createMultiElements(tabData, htmlElement, parentHtmlElement) {
 }
 
 /**
+ * Filtre les données en fonction de la valeur du champ ciblé
  *
  * @param {array} tabKeys le tableau des clés, tabKey[0] == selectorName
  * @param {string} wanted ce que l'on recherche
  * @param {arrayOfObject} jsonDataObject le json entier
  */
-
-export function dataFilter(tabKeys, wanted, jsonDataObject) {
+export function dataFilter(jsonDataObject,tabKeys, wanted) {
   let swiperContainer = document.querySelector(".swiper"); //L'ensemble du swiper
+  swiperContainer.querySelector(".swiper-wrapper").innerHTML = ""; // Vider le slider
   //si le tableau inclus ce qu'on recherche
   if (tabKeys.includes(wanted)) {
-    console.log(wanted);
-    console.log(tabKeys[0]);
     //alors on crée un objet pour chaque donnée d'objet dans json data
     for (let dataObject of jsonDataObject) {
       if (dataObject[tabKeys[0]] === wanted) {

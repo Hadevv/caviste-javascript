@@ -20,12 +20,7 @@ const data = await response;
 console.log(data); //Tableau des vins
 let swiperContainer = document.querySelector(".swiper"); //L'ensemble du swiper
 const inputName = document.getElementById("inputName"); //élément input pour le nom du vin
-let tabName = []; //tableau des noms de vins
 
-//boucle de récupération du nom du vin
-for (let i = 0; i < data.length; i++) {
-  tabName.push(data[i].name);
-}
 // crée une slide pour chaque vin
 data.forEach((wineObject) => {
   const slide = creerSlide(wineObject); //crée une slide avec les données du vin
@@ -65,10 +60,8 @@ inputName.addEventListener("input", (e) => {
 const colorSelector = document.getElementById("colorSelector");
 const tabColors = getData(data, "color"); // tableau des couleurs
 createMultiElements(tabColors, "option", colorSelector);
-
 colorSelector.addEventListener("change", (e) => {
   let colorWanted = colorSelector.value; //la couleur qu'on souhaite
-  swiperContainer.querySelector(".swiper-wrapper").innerHTML = ""; // Vider le slider
   dataFilter(tabColors, colorWanted, data);
 });
 
@@ -95,7 +88,6 @@ let countryWanted = ""; // variable qui contiendra la string du pays selectionn�
 countrySelector.addEventListener("change", (e) => {
   //on récupère la valeur du pays selectionné
   countryWanted = countrySelector.value;
-  swiperContainer.querySelector(".swiper-wrapper").innerHTML = ""; // Vider le slider
   dataFilter(tabCountries, countryWanted, data);
 });
 
@@ -108,8 +100,10 @@ data.forEach((wineObject) => {
   tabPrice.push(parseFloat(wineObject.price));
 });
 //Définition des valeurs minimale et maximale
+//récupération des data du tableau
 const minVal = Math.min(...tabPrice);
 const maxVal = Math.max(...tabPrice);
+// variables DOM
 const priceMin = document.getElementById("priceMin");
 const priceMax = document.getElementById("priceMax");
 const slide = document.getElementById("line"); // div slider
