@@ -13,7 +13,9 @@ export function creerSlide(wineObject) {
   //contenu de la slide
   divSlide.innerHTML = `
     <div class="bg-white rounded-lg p-4 flex flex-row product ">
-    <li class="property jetetiens" style="display: none;">${wineObject.description}</li>
+      <li class="property jetetiens" style="display: none;">${
+        wineObject.description
+      }</li>
       <div class="container-btv" class="flex-grow w-full md:pr-4 ">
         <img class="btv " src="${URL + wineObject.picture}" alt="photo du vin">
       </div>
@@ -39,7 +41,7 @@ export function creerSlide(wineObject) {
  *
  * @param {Array} tabWinesObjects Un tableau d'objets de vins
  * @param {string} inputValue La valeur du champs de recherche
- * @returns {Array} Un tableau d'objets de vins filtrés
+ * @returns {Array<Objects>} Un tableau d'objets de vins filtrés
  */
 // fonction de filtrage
 export function filterResults(tabWinesObjects, inputValue) {
@@ -70,7 +72,6 @@ export function newSwiper(wrapper) {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
     },
-
   });
   // On récupère la div qui contiendra la description
   const divDescription = document.getElementById("productInfosContent");
@@ -101,7 +102,6 @@ export function newSwiper(wrapper) {
     }
   });
 }
-
 
 /**
  * permet de rajouter plusieurs attributs d'un coup à un élément
@@ -167,9 +167,10 @@ export function createMultiElements(tabData, htmlElement, parentHtmlElement) {
  *
  * @param {array} tabKeys le tableau des clés, tabKey[0] == selectorName
  * @param {string} wanted ce que l'on recherche
- * @param {arrayOfObject} jsonDataObject le json entier
+ * @param {Array<Objects>} jsonDataObject le json entier
  */
-export function dataFilter(jsonDataObject,tabKeys, wanted) {
+
+export function dataFilter(tabKeys, wanted, jsonDataObject) {
   let swiperContainer = document.querySelector(".swiper"); //L'ensemble du swiper
   swiperContainer.querySelector(".swiper-wrapper").innerHTML = ""; // Vider le slider
   //si le tableau inclus ce qu'on recherche
@@ -195,5 +196,46 @@ export function dataFilter(jsonDataObject,tabKeys, wanted) {
     }
   } else {
     console.log("data not in the list");
+  }
+}
+
+/****************************************************************************************/
+/** récupère la valeur la plus forte et la plus faible d'un tableau passé en paramètre *
+ *                                                                                      *
+ * @param {array[nb]} tabNb un tableau de nombres                                       *
+ * @return {array[nb]} les deux valeurs                                                 *
+ ****************************************************************************************/
+export function getMinMax(tabNb) {
+  //Définition des valeurs minimale et maximale
+  //récupération des data du tableau tabNb
+  const minVal = Math.min(...tabNb); // valeur la plus faible
+  const maxVal = Math.max(...tabNb); // valeur la plus forte
+
+  return [minVal, maxVal];
+}
+
+/*********************************************************/
+/**                                                     *
+ * @param {HTMLElement} input ce que l'on cherche        *
+ * @param {Array<Objects>} dataObject Un tableau d'objet *
+ *                                                       *
+ *********************************************************/
+export function textFilter(input, dataObject) {
+  let swiperContainer = document.querySelector(".swiper"); //L'ensemble du swiper
+  swiperContainer.querySelector(".swiper-wrapper").innerHTML = ""; // Vider le slider
+  const dataTabFiltre = filterResults(dataObject, input.value); // Filtrer les données
+
+  dataTabFiltre.forEach((dataObject) => {
+    const filtredSlide = creerSlide(dataObject);
+    swiperContainer.querySelector(".swiper-wrapper").appendChild(filtredSlide);
+  });
+  if (input.value.length === 0) {
+    swiperContainer.querySelector(".swiper-wrapper").innerHTML = ""; // Vider le slider
+    dataTabFiltre.forEach((dataObject) => {
+      const filtredSlide = creerSlide(dataObject);
+      swiperContainer
+        .querySelector(".swiper-wrapper")
+        .appendChild(filtredSlide);
+    });
   }
 }

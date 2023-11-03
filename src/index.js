@@ -3,11 +3,12 @@ import FetchApi from "./modules/fetchApi.js";
 //Importe les fonctions
 import {
   creerSlide,
-  filterResults,
   newSwiper,
   getData,
   createMultiElements,
   dataFilter,
+  getMinMax,
+  textFilter,
 } from "./modules/function.js";
 import noUiSlider from "../../node_modules/nouislider/dist/nouislider.min.mjs";
 
@@ -34,23 +35,7 @@ newSwiper(swiperContainer); //Initialisation du swiper
 /*     EVENT : CHERCHER PAR NOM                                     */
 /******************************************************************* */
 inputName.addEventListener("input", (e) => {
-  swiperContainer.querySelector(".swiper-wrapper").innerHTML = ""; // Supprimez les slides existantes
-
-  const winesTabFiltre = filterResults(data, inputName.value); // Filtrer les données
-  // Créer les slides filtrées
-  winesTabFiltre.forEach((wineObject) => {
-    const filtreSlide = creerSlide(wineObject);
-    swiperContainer.querySelector(".swiper-wrapper").appendChild(filtreSlide);
-  });
-  //si la valeur de l'input est vide
-  if (inputName.value.length === 0) {
-    swiperContainer.querySelector(".swiper-wrapper").innerHTML = ""; // Supprimer les slides existantes
-    // afficher toutes les slides
-    data.forEach((wineObject) => {
-      const slide = creerSlide(wineObject);
-      swiperContainer.querySelector(".swiper-wrapper").appendChild(slide);
-    });
-  }
+  textFilter(inputName, data);
 });
 
 /************************************************************************************************** */
@@ -60,6 +45,7 @@ inputName.addEventListener("input", (e) => {
 const colorSelector = document.getElementById("colorSelector");
 const tabColors = getData(data, "color"); // tableau des couleurs
 createMultiElements(tabColors, "option", colorSelector);
+
 colorSelector.addEventListener("change", (e) => {
   let colorWanted = colorSelector.value; //la couleur qu'on souhaite
   dataFilter(tabColors, colorWanted, data);
@@ -99,25 +85,23 @@ let tabPrice = []; // le tableau des prix
 data.forEach((wineObject) => {
   tabPrice.push(parseFloat(wineObject.price));
 });
-//Définition des valeurs minimale et maximale
-//récupération des data du tableau
-const minVal = Math.min(...tabPrice);
-const maxVal = Math.max(...tabPrice);
+let tabMinAndMAx = getMinMax(tabPrice);
+
 // variables DOM
 const priceMin = document.getElementById("priceMin");
 const priceMax = document.getElementById("priceMax");
 const slide = document.getElementById("line"); // div slider
 
-priceMin.innerHTML = minVal + "€";
-priceMax.innerHTML = maxVal + "€";
+priceMin.innerHTML = tabMinAndMAx[0] + "€";
+priceMax.innerHTML = tabMinAndMAx[1] + "€";
 
 //création du slider
 noUiSlider.create(slide, {
-  start: [minVal, maxVal],
+  start: [tabMinAndMAx[0], tabMinAndMAx[1]],
   connect: true,
   range: {
-    min: minVal,
-    max: maxVal,
+    min: tabMinAndMAx[0],
+    max: tabMinAndMAx[1],
   },
 });
 
